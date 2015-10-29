@@ -17,7 +17,35 @@ namespace SimpleEvents {
 		typedef std::function<void()> CallbackT;
 		typedef unsigned CallbackId;
 
-		CallbackId add_callback(CallbackT callback);
+		class CallbackHolder
+		{
+		public:
+			CallbackHolder(Event & event, CallbackId callback_id)
+				: event_(event)
+				, callback_id_(callback_id)
+			{
+			}
+
+			CallbackHolder(CallbackHolder && rhs)
+				: event_(rhs.event_)
+				, callback_id_(rhs.callback_id_)
+			{
+				rhs.callback_id_ = 0;
+			}
+
+			~CallbackHolder()
+			{
+				if(callback_id_ != 0)
+					event_.remove_callback(callback_id_);
+			}
+			
+		private:
+			Event & event_;
+			CallbackId callback_id_;
+
+		};
+
+		CallbackHolder add_callback(CallbackT callback);
 		void remove_callback(CallbackId callback_id);
 
 	protected:

@@ -15,13 +15,13 @@ int main()
 {
 
 	SwitchEvent left_event;
-	left_event.add_callback([] { cout << "left event complete" << endl; });
+	auto h1 = left_event.add_callback([] { cout << "left event complete" << endl; });
 	
 	SwitchEvent right_event;
-	right_event.add_callback([] { cout << "right event complete" << endl; });
+	auto h2 = right_event.add_callback([] { cout << "right event complete" << endl; });
 
 	AndEvent and_event(left_event, right_event);
-	and_event.add_callback([] { cout << "And event complete" << endl;  });
+	auto h3 = and_event.add_callback([] { cout << "And event complete" << endl;  });
 
 	left_event.complete();
 	right_event.complete();

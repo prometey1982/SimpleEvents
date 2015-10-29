@@ -19,8 +19,8 @@ namespace SimpleEvents {
 		Event & lhs_;
 		Event & rhs_;
 
-		CallbackId lhs_callback_id_;
-		CallbackId rhs_callback_id_;
+		CallbackHolder lhs_callback_holder_;
+		CallbackHolder rhs_callback_holder_;
 
 		bool left_complete_;
 		bool right_complete_;
