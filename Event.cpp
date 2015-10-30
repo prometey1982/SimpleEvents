@@ -6,6 +6,7 @@ namespace SimpleEvents {
 	Event::Event()
 		: is_active_(true)
 		, callback_id_(0)
+		, is_completed_(false)
 	{
 	}
 
@@ -27,11 +28,15 @@ namespace SimpleEvents {
 
 	void Event::on_complete()
 	{
-		if(is_active_)
+		if (is_active_)
+		{
+			is_completed_ = true;
+
 			for each (auto callback in callbacks_)
 			{
 				callback.second();
 			}
+		}
 	}
 
 

@@ -14,6 +14,10 @@ namespace SimpleEvents {
 		bool activate(bool active) { is_active_ = active; }
 		bool is_active() const { return is_active_; }
 
+		bool completed() const { return is_completed_; }
+
+		void reset() { is_completed_ = false; }
+
 		typedef std::function<void()> CallbackT;
 		typedef unsigned CallbackId;
 
@@ -57,7 +61,8 @@ namespace SimpleEvents {
 		CallbackId callback_id_;
 
 		std::map<CallbackId, CallbackT> callbacks_;
-		
+
+		bool is_completed_;
 	};
 
 } // namespace SimpleEvents
