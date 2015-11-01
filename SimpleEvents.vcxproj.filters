@@ -33,6 +33,12 @@
     <ClInclude Include="SwitchEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OrEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DependentEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -48,6 +54,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SwitchEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OrEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DependentEvent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

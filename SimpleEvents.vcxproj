@@ -146,14 +146,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AndEvent.h" />
+    <ClInclude Include="DependentEvent.h" />
     <ClInclude Include="Event.h" />
+    <ClInclude Include="OrEvent.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SwitchEvent.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AndEvent.cpp" />
+    <ClCompile Include="DependentEvent.cpp" />
     <ClCompile Include="Event.cpp" />
+    <ClCompile Include="OrEvent.cpp" />
     <ClCompile Include="SimpleEvents.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

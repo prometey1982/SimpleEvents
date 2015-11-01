@@ -30,11 +30,14 @@ namespace SimpleEvents {
 	{
 		if (is_active_)
 		{
-			is_completed_ = true;
-
-			for each (auto callback in callbacks_)
+			if (!is_completed_)
 			{
-				callback.second();
+				is_completed_ = true;
+
+				for each (auto callback in callbacks_)
+				{
+					callback.second();
+				}
 			}
 		}
 	}

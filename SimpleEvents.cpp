@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "AndEvent.h"
+#include "OrEvent.h"
 #include "SwitchEvent.h"
 
 using namespace SimpleEvents;
@@ -20,8 +21,11 @@ int main()
 	SwitchEvent right_event;
 	auto h2 = right_event.add_callback([] { cout << "right event complete" << endl; });
 
-	AndEvent and_event(left_event, right_event);
+	AndEvent and_event({&left_event, &right_event });
 	auto h3 = and_event.add_callback([] { cout << "And event complete" << endl;  });
+
+	OrEvent orr_event({ &left_event, &right_event });
+	auto h4 = orr_event.add_callback([] { cout << "Or event complete" << endl;  });
 
 	left_event.complete();
 	right_event.complete();
